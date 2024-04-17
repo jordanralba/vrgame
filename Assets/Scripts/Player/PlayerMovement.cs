@@ -53,13 +53,13 @@ public class PlayerMovement : MonoBehaviour
         
     }
     public void Move(){
-        Vector2 rightJoystickAxis = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
+        Vector2 joystickAxis = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
         if (controlState)
         {   
-            player2DRb.AddRelativeForce(new Vector3(rightJoystickAxis.x, 0, rightJoystickAxis.y)*accelerationScale*mult2D);
+            player2DRb.AddRelativeForce(new Vector3(joystickAxis.x, 0, joystickAxis.y)*accelerationScale*mult2D);
             return;
         }
-        playerRb.AddRelativeForce(new Vector3(rightJoystickAxis.x, 0, rightJoystickAxis.y)*accelerationScale);
+        playerRb.AddRelativeForce(new Vector3(joystickAxis.x, 0, joystickAxis.y)*accelerationScale);
     }
     public void PickedUpTrigger(){
         Debug.Log(controlState);
