@@ -549,6 +549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  portal: {fileID: 0}
+  targetPortal: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

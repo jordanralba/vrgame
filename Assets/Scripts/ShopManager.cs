@@ -16,18 +16,7 @@ public class ShopManager : MonoBehaviour
     public PlayerStats playerStats;
 
     MeshRenderer[] meshes;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void PurchaseItem(GameObject item){
         ShopItem shopItem = item.GetComponent<ShopItem>();
         int price = shopItem.price;
