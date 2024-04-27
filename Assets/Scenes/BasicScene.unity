@@ -987,6 +987,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1924593073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &115854866 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2050650859161884503, guid: 725abfa89e089c34f91d4bc5983ab718, type: 3}
+  m_PrefabInstance: {fileID: 2055278826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &115882178
 GameObject:
   m_ObjectHideFlags: 0
@@ -10210,8 +10215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 800231047}
-  player: {fileID: 86695271}
-  screen: {fileID: 2055278827}
+  controller: {fileID: 86695271}
+  start: {fileID: 115854866}
   scale: 0.5
 --- !u!1 &949202317
 GameObject:
@@ -23044,11 +23049,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2055278828}
   m_SourcePrefab: {fileID: 100100000, guid: 725abfa89e089c34f91d4bc5983ab718, type: 3}
---- !u!4 &2055278827 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 200096934207463208, guid: 725abfa89e089c34f91d4bc5983ab718, type: 3}
-  m_PrefabInstance: {fileID: 2055278826}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2055278828
 MonoBehaviour:
   m_ObjectHideFlags: 0

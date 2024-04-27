@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraTarget : MonoBehaviour
 {
     public Transform cameraTarget;
-    public Transform player;
-    public Transform screen;
+    public Transform controller;
+    public Transform start;
     public float scale = 0.5f;
     bool isTargeting = true;
     // Start is called before the first frame update
@@ -19,8 +19,10 @@ public class CameraTarget : MonoBehaviour
     void Update()
     {
         if(!isTargeting) return;
-        Vector2 distanceBetween = new Vector2(player.localPosition.x, player.localPosition.z);
-        if(distanceBetween.magnitude > 5 || distanceBetween.x <= 0)return;
+        Vector3 distanceBetween = new Vector3(start.localPosition.z - controller.localPosition.x, start.localPosition.y - controller.localPosition.y, start.localPosition.x - controller.localPosition.z);
+        Debug.Log(distanceBetween);
+        //if(distanceBetween.magnitude > 5 || distanceBetween.x <= 0)return;
+        if(distanceBetween.x > 5 || distanceBetween.x <= 0)return;
         transform.localPosition = new Vector3(distanceBetween.x*scale, transform.localPosition.y, distanceBetween.y*scale);
         cameraTarget.localPosition = new Vector3((distanceBetween.x * -1f), cameraTarget.localPosition.y, cameraTarget.localPosition.z);
         //Debug.Log(distanceBetween);
