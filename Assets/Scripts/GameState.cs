@@ -49,7 +49,8 @@ public class GameState : MonoBehaviour
         
     }
     public void UpdateStarDisplay(){
-        stars[collectedStars].GetComponent<Image>().sprite = enabledStar;
+        //stars[collectedStars].GetComponent<Image>().sprite = enabledStar;
+        stars[collectedStars].SetActive(true);
     }
     
     
