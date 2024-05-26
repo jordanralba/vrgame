@@ -7,6 +7,8 @@ TagManager:
   - Star
   - Anchor
   - Enemy
+  - Disk
+  - Ability
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - UI
   - Player
   - Ground
-  - HiddenWall
-  - 
+  - VisibleLevel
+  - HiddenLevel
   - 
   - 
   - 

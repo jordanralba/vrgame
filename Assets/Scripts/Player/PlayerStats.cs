@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static int abilityLevel = 0;
     public static int points = 0;
     public static int stars = 0;
     public static int normalBullets = 0;
@@ -38,4 +39,7 @@ public class PlayerStats : MonoBehaviour
         stars += addendValue;
         canvasStars.text = "Stars: "+stars;
     }
+
+    
+
 }

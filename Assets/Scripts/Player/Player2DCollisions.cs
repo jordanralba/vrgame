@@ -24,8 +24,8 @@ public class Player2DCollisions : MonoBehaviour
         if(col.gameObject.CompareTag("Star")){
             Destroy(col.gameObject);
             playerStats.UpdateStars(1);
-            gameState.UpdateStarDisplay();
-            GameState.collectedStars += 1;
+            gameState.UpdateStarDisplay(true);
+            gameState.collectedStars += 1;
         }
     }
 }

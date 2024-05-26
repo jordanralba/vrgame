@@ -7,9 +7,10 @@ public class GameState : MonoBehaviour
 {
     public GameObject player;
     public GameObject player2D;
+    public GameObject screen;
     public GameObject[] enemies2D;
-    public int totalStars = 3;
-    public static int collectedStars = 0;
+    public int totalStars;
+    public int collectedStars = 0;
     public GameObject[] stars;
     public Sprite enabledStar;
     public int hearts;
@@ -17,6 +18,9 @@ public class GameState : MonoBehaviour
     public GameObject[] portals;
     public Transform portalPos;
     bool portalsActive = false;
+    public GameObject activeDisk;
+
+    public Material defaultScreen;
 
 
 
@@ -29,18 +33,22 @@ public class GameState : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(collectedStars == totalStars){
             if(!portalsActive){
                 player2D.SetActive(false);
                 SpawnPortal();
+                activeDisk.GetComponent<LevelDisk>().isComplete = true;
             }
-            
         }
         if(enemiesRemaining == 0){
             portals[1].SetActive(true);
         }
+        // if(activeLevel != null){
+        //   Debug.Log(activeLevel.name);  
+        // }
+        
     }
     public void Teleport(GameObject gameObject){
        
@@ -48,9 +56,17 @@ public class GameState : MonoBehaviour
         gameObject.transform.rotation = portalPos.rotation;
         
     }
-    public void UpdateStarDisplay(){
+    public void UpdateStarDisplay(bool setActive){
         //stars[collectedStars].GetComponent<Image>().sprite = enabledStar;
-        stars[collectedStars].SetActive(true);
+        if(setActive) stars[collectedStars].SetActive(true);
+        else 
+        {
+            for(int i = 0;i<stars.Length;i++){
+                stars[i].SetActive(false);
+            }
+            
+        }
+        
     }
     
     
@@ -65,5 +81,16 @@ public class GameState : MonoBehaviour
         foreach(GameObject enemy in enemies2D){
             enemy.GetComponent<EnemyStateController>().targetPortal = true;
         }
+    }
+
+    public void ChangeDisplay(){
+        screen.GetComponent<MeshRenderer>().material = defaultScreen;
+    }public void ChangeDisplay(Material material){
+        screen.GetComponent<MeshRenderer>().material = material;
+    }
+
+    public void WarpReality(){
+        if(PlayerStats.abilityLevel <= 0 ) return;
+        activeDisk.GetComponent<LevelDisk>().level.GetComponent<DimensionTracker>().CycleDimension();
     }
 }
